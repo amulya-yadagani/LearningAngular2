@@ -1,0 +1,16 @@
+<div class="responsive">
+    <table class="table table-striped">
+        <thead>
+            <th>Id&nbsp;<a (click)="sortAsc('Id')">></a><a (click)="sortDesc('Id')"><</a></th>
+            <th>Name&nbsp;<a (click)="sortAsc('Name')">></a><a (click)="sortDesc('Name')"><</a></th>
+            <th>Branch&nbsp;<a (click)="sortAsc('Branch')">></a><a (click)="sortDesc('Branch')"><</a></th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let row of dataSource">
+                <td>{{row.id}}</td>
+                <td>{{row.name}}</td>
+                <td>{{row.branch}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,41 @@
+<h2>Reactive Forms</h2>
+<div class="container">
+    <form class="form-horizontal" [formGroup]="heroForm">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="control-label">Name</label>
+                    <input type="text" class="form-control" formControlName="name" />
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="control-label">City</label>
+                    <input type="text" class="form-control" formControlName="city" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="control-label">State</label>
+                    <select formControlName="state">
+                        <option *ngFor="let state of states" [value]="state">{{state}}</option>
+                    </select> 
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="control-label">Power</label>
+                    <label class="center-block"><input type="radio" formControlName="power" value="flight">Flight</label>
+                    <label class="center-block"><input type="radio" formControlName="power" value="x-ray vision">X-ray vision</label>
+                    <label class="center-block"><input type="radio" formControlName="power" value="strength">Strength</label>
+                </div>
+            </div>
+        </div>
+        <button (click)="resetData()">reset</button>
+    </form>
+
+    {{heroForm.value | json}}
+
+</div>

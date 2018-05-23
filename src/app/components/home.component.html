@@ -1,0 +1,32 @@
+<form (ngSubmit)="onSubmit(heroForm)" #heroForm="ngForm">
+  <div class="form-group">
+    <label for="name">Name
+      <input class="form-control" name="heroName" required [(ngModel)]="hero.name">
+    </label>
+  </div>
+  <button type="submit" [disabled]="!heroForm.form.valid">Submit</button>
+</form>
+
+<div [hidden]="!heroForm.form.valid">
+  {{submitMessage}}
+</div>
+<input type="text" [(ngModel)]="username"/>
+
+<div *ngFor="let hero of heroes; trackBy: trackByHeroes">
+  ({{hero.id}}) {{hero.name}}
+</div>
+<input [ngModel]="currentHeroName" (ngModelChange)="setUppercaseName($event)">
+<!--<async-prgm></async-prgm>
+<input type="text" name="age" size="3"
+  onChange="validate(this, 18, 99)">-->
+<!--<grid></grid>-->
+
+<!--<app-ad-banner [ads]="ads"></app-ad-banner>-->
+
+<!--<test-pipe></test-pipe>-->
+
+<ul class="nav nav-tabs">
+  <li><a routerLink="directives" routerLinkActive="active">Directives</a></li>
+  <li><a [routerLink]="['inputOutput',fontSizePx,fontSizeEm,{heroData: heroes}]" routerLinkActive="active">Input/Output Binding</a></li>
+</ul>
+<router-outlet></router-outlet>
